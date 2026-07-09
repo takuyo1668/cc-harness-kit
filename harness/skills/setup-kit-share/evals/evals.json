@@ -1,0 +1,17 @@
+{
+  "skill_name": "setup-kit-share",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "scratchpad/fixtures/nippou/ にある日報自動化の運用（シェルスクリプト＋Claudeコマンド＋launchd定期実行＋README）を、社内の他メンバーのまっさらなMacでも一度で再現できるように配布キット化して。Drive実アップロードとSlack実投稿はせず準備まで。",
+      "expected_output": "読者別ファイル構成のキット＋E2E検証レポート＋Drive格納手順＋Slack告知文ドラフト。個人パスはプレースホルダ化。",
+      "files": ["fixtures/nippou/"]
+    },
+    {
+      "id": 1,
+      "prompt": "fixtures/prompt-library/ のチーム共通プロンプト集の仕組みを他部署にも配りたい。まっさらな環境の非エンジニアでも一発でセットアップできる形にして、Drive共有の準備まで。",
+      "expected_output": "非エンジニア向けGUIDEを含む読者別キット＋E2E検証＋Drive格納手順＋Slack告知文ドラフト。",
+      "files": ["fixtures/prompt-library/"]
+    }
+  ]
+}

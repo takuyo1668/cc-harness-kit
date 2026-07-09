@@ -1,0 +1,20 @@
+# マシンごとのローカル設定（各自作る。配布しない）
+settings.local.json
+harness/settings.local.json
+
+# OS / エディタ
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# 個人データ・ログ（万一混入しても弾く保険）
+prompt-log/
+*.jsonl
+history.jsonl
+projects/
+sessions/
+telemetry/
+*.token
+.*-token

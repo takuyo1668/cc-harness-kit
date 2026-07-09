@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "includeCoAuthoredBy": true,
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(fd:*)",
+      "Bash(find:*)",
+      "Bash(echo:*)",
+      "Bash(pwd)",
+      "Bash(which:*)",
+      "Bash(wc:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(diff:*)",
+      "Bash(cut:*)",
+      "Bash(tr:*)",
+      "Bash(jq:*)",
+      "Bash(rsync:*)",
+      "WebFetch",
+      "WebSearch",
+      "Bash(node:*)",
+      "Bash(npm run:*)",
+      "Bash(npx tsc:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git push)",
+      "Bash(python3:*)",
+      "Bash(pytest:*)",
+      "Bash(prettier:*)",
+      "Bash(eslint:*)"
+    ],
+    "ask": [
+      "Bash(git push:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git checkout .)",
+      "Bash(git restore .)",
+      "Bash(git clean -f:*)",
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/*token*)",
+      "Read(**/.ssh/**)",
+      "Read(**/id_rsa*)",
+      "Read(**/*.pem)",
+      "Read(**/credentials*)",
+      "Read(**/secrets*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/pretool-guard.sh"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/prompt-logger.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "mcp__claude-in-chrome__navigate|mcp__claude-in-chrome__computer",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/web-evaluator.sh"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/harness-health.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "model": "opusplan",
+  "outputStyle": "Explanatory"
+}

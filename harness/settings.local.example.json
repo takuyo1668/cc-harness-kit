@@ -1,0 +1,12 @@
+{
+  "_comment": "settings.local.json はマシンごとの追加許可を置くファイル（git管理しない）。このexampleをコピーして自分用に編集する。プロジェクトで使うMCPツールや、頻出の読み取り専用コマンドをここに足すと確認プロンプトが減る。",
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "Bash(pbcopy)",
+      "Bash(pbpaste)"
+    ]
+  },
+  "outputStyle": "Explanatory",
+  "spinnerTipsEnabled": true
+}
