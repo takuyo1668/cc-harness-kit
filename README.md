@@ -61,6 +61,13 @@ SETUP.md                     Claude 向けの詳細な作業指示書
 > Anthropic 公式プラグインのスキル（copywriting, paid-ads, skill-creator 等）は
 > このキットに含めません。各自プラグインから入手できます。詳細は `docs/SKILLS.md`。
 
+### 追加キット: codegraph-kit（コードのナレッジグラフ化）
+
+`codegraph-kit/` は本体とは独立に導入できる追加キットです。OSS の CodeGraph を使って
+プロジェクトのコードを索引化（ナレッジグラフ化）し、「この関数を変えたらどこが壊れるか」
+「この機能はどこと繋がっているか」を Claude が1コールで答えられるようにします。
+導入は `codegraph-kit/GUIDE.md` から。
+
 ---
 
 ## セットアップ（3通り）
